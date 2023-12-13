@@ -1,0 +1,41 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color:rgb(215, 250, 241) ;
+}
+
+.logo{
+    display: flex;
+    gap: 5px;
+    font-size: large
+    
+}
+.logo img {
+    font-size: larger;
+    height: 22px;
+    width: 39px;
+}
+
+nav {
+    background-color: orange;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.right ul {
+    display: flex;
+    gap: 34px;
+}
+
+.right ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}.right ul li span{
+    padding: 0px 4px;
+    cursor: pointer;
+}
