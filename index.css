@@ -3,7 +3,7 @@
     padding: 0px;
 }
 body{
-    background-color:rgb(215, 250, 241) ;
+    background-color:rgb(157, 229, 247) ;
 }
 
 .logo{
@@ -19,7 +19,7 @@ body{
 }
 
 nav {
-    background-color: orange;
+    background-color: rgb(245, 182, 10);
     padding: 20px;
     display: flex;
     justify-content: space-around;
