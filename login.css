@@ -9,6 +9,7 @@
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -42,7 +43,7 @@ body{
 }
 
 .input-box input{
-    width: 100%;
+    width: 87%;
     height: 100%;
     background: transparent;
     border: none;
@@ -52,6 +53,7 @@ body{
     font-size: 16px;
     color: #fff;
     padding: 20px 45px 20px 20px;
+    margin-left: 27px;
 }
 
 .input-box input::placeholder{
@@ -60,8 +62,8 @@ body{
 
 .input-box i{
     position: absolute;
-    right: 20px;
-    top: 50px;
+    right: 42px;
+    top: 26px;
     transform: translateY(-50%);
     font-size: 20px;
 }
@@ -114,5 +116,15 @@ body{
 }
 
 .register-link p a:hover {
+    padding: 20px;
     text-decoration: underline;
+}
+
+button{
+    background-color: #4caf50;
+    padding: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
 }
