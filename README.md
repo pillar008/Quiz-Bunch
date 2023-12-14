@@ -5,3 +5,4 @@ We will start our project now i have created a simole staring webpage you can se
 
 we'll do further changes on the go.
 # Best Of Luck
+# You don't get what you want, you get what you work for
