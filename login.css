@@ -122,9 +122,19 @@ body{
 
 button{
     background-color: #4caf50;
-    padding: 8px;
+    width: 100px;
+    padding: 10px;
     cursor: pointer;
     border: none;
     border-radius: 10px;
     margin: 10px;
+}
+
+button:hover{
+    background-color: #45a049;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
 }
