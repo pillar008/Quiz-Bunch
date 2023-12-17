@@ -1,55 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Bunch</title>
-    <link rel="stylesheet" href="index.css">
+    <title>QUIZ WEBSITE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="https://www.freepnglogos.com/uploads/infinity-symbol-png/infinity-symbol-the-neumans-work-1.png"
-                    alt="icon">
-                Quiz Bunch
-            </div>
-            <div class="right">
-                <ul>
-                    <li><span> Products</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
-                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </li>
-                    <li><span> Pricing</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
-                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </li>
-                    <li><span> Resources</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
-                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </li>
-                    <li><span> About US</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M6 9L11.2929 14.2929C11.6262 14.6262 11.7929 14.7929 12 14.7929C12.2071 14.7929 12.3738 14.6262 12.7071 14.2929L18 9"
-                                stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </li>
-                </ul>
-        </nav>
-        </div>
-    </header>
-</body>
+    <main class="main">
+        <header class="header">
+            <a href="#" class="logo">Quiz</a>
 
+            <nav class="navbar">
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>QuizBunch</h1>
+                    <div class="quiz-header">
+                        <span>Quiz Bunch Tutorials</span>
+                        <span class="header-score">Score: 0 / 5</span>
+                    </div>
+                    <h2 class="question-text">What does HTML stands for?</h2>
+
+                    <div class="option-list">
+                        <div class="option">
+                            <span>A. Hyper Text Multi Language</span>
+                        </div>
+
+                        <div class="option">
+                            <span>B. Hyper Text Multiple Language</span>
+                        </div>
+
+                        <div class="option">
+                            <span>C. Hyper Text Markup Language</span>
+                        </div>
+
+                        <div class="option">
+                            <span>D. Home Text Multi Language</span>
+                        </div>
+                    </div>
+                    <div class="quiz-footer">
+                        <span class="question-total">1 of 5 Question</span>
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home">
+                <div class="home-content">
+                    <h1>Quiz Website</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere harum nesciunt nihil neque est inventore, illo consequuntur officiis dolor nulla. Vitae nisi eligendi non nulla tempore doloribus est officia ipsam!</p>
+                    <button class="start-btn">Start Quiz</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="popup-info">
+        <h2>Quiz Guide</h2>
+        <span class="info">1. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span class="info">2. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span class="info">3. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span class="info">4. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span class="info">5. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+
+        <div class="btn-group">
+            <button class="info-btn exit-btn">Exit  Quiz</button>
+            <a href="#" class="info-btn continue-btn">Continue</a>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
