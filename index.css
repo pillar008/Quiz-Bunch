@@ -195,8 +195,8 @@ body {
 
 .quiz-section {
     position: relative;
-    /*left: -50%;*/
-    left: 0;
+    left: -50%;
+    /* left: 0;*/         /*For Slide The Page For Quiz*/
     width: 100%;
     background: #09001d;
     display: flex;
@@ -220,6 +220,17 @@ body {
     display: flex;
     flex-direction: column;
     padding: 20px 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(.9);
+}
+
+.quiz-section .quiz-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
 }
 
 .quiz-box h1 {
@@ -235,6 +246,7 @@ body {
     align-items: center;
     padding: 20px 0;
     border-bottom: 2px solid #c40094;
+    margin-bottom: 30px;
 }
 
 .quiz-header span {
@@ -262,4 +274,44 @@ body {
     font-size: 17px;
     margin: 15px 0;
     cursor: pointer;
+    transition: .3s;
+}
+
+.option-list .option:hover {
+    background: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.quiz-box .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #c40094;
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+.quiz-footer .question-total {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quiz-footer .next-btn {
+    width: 100px;
+    height: 45px;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .1);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, .3);
+    font-weight: 600;
+    cursor: pointer;
+    /* pointer-events: none; */
+    transition: .5s;
+}
+
+.quiz-footer .next-btn:hover {
+    background: #950170;
+    border-color: #950170;
 }
