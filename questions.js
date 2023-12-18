@@ -7,7 +7,7 @@ let questions = [
             "A. Hyper Text Multi Language",
             "B. Hyper Text Multiple Language",
             "C. Hyper Text Markup Language",
-            "D, Home Text Multi Language",
+            "D. Home Text Multi Language",
         ]
     },
     {
@@ -34,13 +34,13 @@ let questions = [
     },
     {
         numb: 4,
-        question: "The HTML attribute used to define the internal stylesheet is",
-        answer: "A. <style>",
+        question: "What does PHP stands for?",
+        answer: "A. HyperText Preprocessor",
         options: [
-            "A. <style>",
-            "B. style",
-            "C. <link>",
-            "D. <script>",
+            "A. HyperText Preprocessor",
+            "B. Hometext Programming",
+            "C. Hypertext Preprogramming",
+            "D. Programming Hypertext Preproessor",
         ]
     },
     {
@@ -53,5 +53,5 @@ let questions = [
             "C. Assembly-language",
             "D. High-level",
         ]
-    },
+    }
 ];
