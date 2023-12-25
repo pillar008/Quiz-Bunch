@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Sign Up Page</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
+            margin: 0;
         }
 
         .signup-container {
@@ -25,7 +24,7 @@
         }
 
         .signup-header {
-            background-color: rgb(200, 24, 24);
+            background-color: rgb(192, 8, 8);
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -58,7 +57,7 @@
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
-            background-color: rgb(200, 24, 24);
+            background-color: rgb(192, 8, 8);
             color: #fff;
             border: none;
             border-radius: 4px;
@@ -66,7 +65,7 @@
         }
 
         .form-group button:hover {
-            background-color: #357ae8;
+            background-color: rgb(215, 7, 7);;
         }
     </style>
 </head>
@@ -76,21 +75,23 @@
             <h2>Sign Up</h2>
         </div>
         <div class="signup-form">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Sign Up</button>
-            </div>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>
