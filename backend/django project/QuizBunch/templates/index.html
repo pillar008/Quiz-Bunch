@@ -1,14 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QUIZ WEBSITE</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'static/style.css' %}"
-    />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}" />
   </head>
   <body>
     <main class="main">
@@ -19,7 +17,10 @@
           <a href="#" class="active">Home</a>
           <a href="#">About</a>
           <a href="#">Services</a>
-          <a href="#">Contact</a>
+          <a
+            href="C:\Users\ASUS\.vscode\django project\QuizBunch\templates\registration\login.html"
+            >login</a
+          >
         </nav>
       </header>
 
@@ -114,5 +115,6 @@
 
     <script src="questions.js"></script>
     <script src="script.js"></script>
+    <script src="{% static 'index.js' %}"></script>
   </body>
 </html>
