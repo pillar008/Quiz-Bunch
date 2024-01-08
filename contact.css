@@ -11,9 +11,17 @@ body {
   .header {
     background-color: #110230;
     color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    padding: 20px 10%;
+    /* background: transparent; */
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    z-index: 100;
+}
   
 .center{
     text-align: center;
@@ -34,25 +42,25 @@ body {
     margin-bottom: 5px;
   }
   
-  input, textarea {
+input, textarea {
     margin-bottom: 10px;
     padding: 8px;
     border: 1px solid #ddd;
-  }
+}
   
-  button {
+button {
     background-color: #160243;
     color: #fff;
     padding: 10px;
     border: none;
     cursor: pointer;
-  }
+}
   
-  button:hover {
+button:hover {
     background-color: #170047;
-  }
+}
   
-  footer {
+footer {
     background-color: #110230;
     color: #fff;
     text-align: center;
@@ -60,22 +68,9 @@ body {
     position: fixed;
     bottom: 0;
     width: 100%;
-  }
-  
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    z-index: 100;
-  }
+}
 
-  .logo {
+.logo {
     font-size: 40px;
     /*Ideal Size In Video Is 32px*/
     color: #fff;
