@@ -13,7 +13,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('logimg.jpg') no-repeat;
+    background: url('loginbg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -129,6 +129,15 @@ button{
     border-radius: 10px;
     margin: 10px;
 }
+.back{
+    background-color: rgb(0, 255, 119);
+    text-decoration: none;
+}
+
+button a{
+    text-decoration: none;
+}
+
 
 button:hover{
     background-color: #45a049;
