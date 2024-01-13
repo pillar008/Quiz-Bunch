@@ -1,5 +1,7 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,11 +14,15 @@
     <main class="main">
       <header class="header">
         <a href="#" class="logo">Quiz</a>
-
+        {% csrf_token %}
         <nav class="navbar">
           <a href="#" class="active">Home</a>
-          <a href="#">About</a>
+          <a href="about.html">About</a>
           <a href="#">Services</a>
+          <a
+            href="C:\Users\ASUS\Desktop\git1\Quiz-Bunch\backend\QuizBunch\templates\registration\contact.html"
+            >Contact</a
+          >
           <a
             href="C:\Users\ASUS\.vscode\django project\QuizBunch\templates\registration\login.html"
             >login</a
@@ -113,7 +119,7 @@
       </div>
     </div>
 
-    <script src="questions.js"></script>
+    <script src="{%static 'questions.js'%}"></script>
     <script src="script.js"></script>
     <script src="{% static 'index.js' %}"></script>
   </body>
