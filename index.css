@@ -107,6 +107,7 @@ body {
 /* 2-start */
 
 .wordCarousel {
+  padding-bottom: 15px;
   font-size: 31px;
   font-weight: 100;
   color: #eee;
