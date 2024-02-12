@@ -20,32 +20,23 @@
         </nav>
       </header>
 
-      <section class="main-content">
-        <h2 class="center">Our Story</h2>
-        <p>
-          Welcome to Your Website, where [brief description of your mission or
-          purpose]. From our humble beginnings [mention any significant
-          milestones or achievements], we have evolved into [describe your
-          current status].
-        </p>
-
-        <h2 class="center">What Sets Us Apart</h2>
-        <ul>
-          <li>[Unique Feature 1]</li>
-          <li>[Unique Feature 2]</li>
-          <li>[Unique Feature 3]</li>
-        </ul>
-
-        <h2 class="center">Our Team</h2>
-        <p>
-          Meet the passionate individuals driving [Your Website] forward. With
-          expertise in [relevant skills], our team is committed to [shared
-          vision or purpose].
+      <section class="center main-content">
+        <h2 class="centers">About Us</h2>
+        <p id="text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa mollitia
+          modi quo tempore iste sunt et magni aspernatur suscipit doloribus
+          perferendis reprehenderit corrupti exercitationem, esse deserunt
+          porro, nulla neque assumenda autem optio atque! Sequi possimus,
+          doloremque nesciunt perspiciatis ea ex eveniet impedit recusandae ipsa
+          pariatur iusto eius illum culpa in. Nulla doloribus, ipsum est itaque
+          aliquam, alias minus magni eos a illum impedit ut numquam rem iure
+          exercitationem quidem id reprehenderit, aperiam sed quo at tenetur
+          tempora quae doloremque. Vel!\
         </p>
       </section>
 
       <section class="call-to-action">
-        <p>Join us on our journey! [Optional call-to-action text]</p>
+        <p id="text">Join us on our journey! [Optional call-to-action text]</p>
         <!-- Add any relevant buttons or links here -->
       </section>
 
@@ -54,7 +45,25 @@
       </footer>
     </main>
 
+    <script>
+      var text = document.getElementById("text");
+      var newDom = "";
+      var animationDelay = 6;
+
+      for (let i = 0; i < text.innerText.length; i++) {
+        newDom +=
+          '<span class="char">' +
+          (text.innerText[i] == " " ? "&nbsp;" : text.innerText[i]) +
+          "</span>";
+      }
+
+      text.innerHTML = newDom;
+      var length = text.children.length;
+
+      for (let i = 0; i < length; i++) {
+        text.children[i].style["animation-delay"] = animationDelay * i + "ms";
+      }
+    </script>
     <script src="questions.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>
