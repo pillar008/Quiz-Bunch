@@ -104,7 +104,7 @@ body {
 .main-content {
   max-width: 800px;
   margin: 80px auto;
-  padding: 30px;
+  padding-top: 13rem;
 }
 
 form {
