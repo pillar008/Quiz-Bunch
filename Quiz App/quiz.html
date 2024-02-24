@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Categories</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #category-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .category-button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      .category-button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quiz Categories</h1>
+    <div id="category-buttons">
+      <!-- Category buttons will be dynamically loaded here -->
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtonsContainer =
+          document.getElementById("category-buttons");
+
+        // Fetch quiz categories from the API
+        fetch("https://opentdb.com/api_category.php")
+          .then((response) => response.json())
+          .then((data) => {
+            const categories = data.trivia_categories;
+
+            // Create buttons for each category
+            categories.forEach((category) => {
+              const button = document.createElement("button");
+              button.textContent = category.name;
+              button.classList.add("category-button");
+              button.addEventListener("click", function () {
+                redirectToQuizPage(category.id);
+              });
+              categoryButtonsContainer.appendChild(button);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching quiz categories:", error);
+            alert("Failed to fetch quiz categories. Please try again later.");
+          });
+
+        // Function to redirect to the quiz page with selected category ID
+        function redirectToQuizPage(categoryId) {
+          window.location.href = `quiz.html?category=${categoryId}`;
+        }
+      });
+    </script>
+  </body>
+</html>
