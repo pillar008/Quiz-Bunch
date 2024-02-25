@@ -1,0 +1,127 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #4a154b;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+#quiz-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Transparent background with 10% opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Soft white glow effect */
+  backdrop-filter: blur(10px); /* Glassy blur effect */
+}
+
+.question {
+  display: none;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Transparent background with 20% opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Soft white glow effect */
+}
+
+.question.active {
+  display: block;
+}
+
+.options {
+  text-align: left;
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Transparent background with 30% opacity */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer; /* Add cursor pointer for selection */
+}
+
+label:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Hover effect */
+}
+
+input[type="radio"] {
+  display: none; /* Hide radio buttons */
+}
+
+input[type="radio"]:checked + label {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Selected answer background color */
+  color: #333; /* Text color for selected answer */
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #9400d3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6a0080;
+}
+
+#score-screen {
+  display: none;
+  padding: 20px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Transparent background with 20% opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Soft white glow effect */
+}
+
+#score-screen.active {
+  display: block;
+  margin-top: 20px;
+}
+
+.tick {
+  color: green; /* Set the color of the tick mark to green */
+  margin-left: 5px; /* Add some space between the option text and the tick mark */
+}
+
+canvas {
+  margin-top: 20px;
+  display: block;
+}

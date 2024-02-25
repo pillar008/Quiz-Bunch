@@ -1,81 +1,85 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wgth@300;400;500;600;700;800;900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-body{
-    background-color: #09001d;
+body {
+  background-color: #09001d;
 }
 
 header {
-    text-align: center;
-    vertical-align: center;
-    font-size: 4rem;
-    padding-top: 2rem;
-    font-weight: 700;
-    color: #c40094;
+  text-align: center;
+  vertical-align: center;
+  font-size: 4rem;
+  padding-top: 2rem;
+  font-weight: 700;
+  color: #c40094;
 
-    -webkit-text-fill-color: #c40094;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #ffffff;
+  -webkit-text-fill-color: #c40094;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
 }
 
 /* Resetting default button styles */
 button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #c40094;
-    color: #ffffff;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #c40094;
+  color: #ffffff;
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 
-    border: 2px solid #fff;
-    box-shadow: 0 0 10px #c40094;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px #c40094;
 }
 
 /* Hover effect */
 button:hover {
-    background-color: #170142;
+  background-color: #170142;
 }
 
 /* Active/focus effect */
 button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.2);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.2);
 }
 
 /* Style for container if needed */
 .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #170142;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #170142;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Flexbox for button arrangement */
 .category-btn {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Space between buttons */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Space between buttons */
 }
 
 /* Adjust button width for better alignment */
 .btn {
-    flex: 1 0 48%; /* Example values, adjust as needed */
+  flex: 1 0 48%; /* Example values, adjust as needed */
 }
 
 /* Media query for responsiveness */
 @media (max-width: 768px) {
-    .btn {
-        flex: 1 0 100%; /* Full width on smaller screens */
-    }
+  .btn {
+    flex: 1 0 100%; /* Full width on smaller screens */
+  }
+}
+a {
+  text-decoration: none;
+  color: white;
 }

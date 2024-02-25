@@ -39,41 +39,91 @@
     </style>
   </head>
   <body>
-    <h1>Quiz Categories</h1>
-    <div id="category-buttons">
-      <!-- Category buttons will be dynamically loaded here -->
+    <h1>Quiz</h1>
+    <div id="question-container">
+      <!-- Quiz questions will be dynamically loaded here -->
     </div>
+    <button id="next-button">Next</button>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const categoryButtonsContainer =
-          document.getElementById("category-buttons");
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryId = urlParams.get("category");
+        const apiUrl = `https://opentdb.com/api.php?amount=10`;
+        let currentQuestionIndex = 0;
+        let questions = [];
+        let userAnswers = [];
+        let correctAnswers = 0;
 
-        // Fetch quiz categories from the API
-        fetch("https://opentdb.com/api_category.php")
+        // Fetch quiz questions from the API
+        fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
-            const categories = data.trivia_categories;
-
-            // Create buttons for each category
-            categories.forEach((category) => {
-              const button = document.createElement("button");
-              button.textContent = category.name;
-              button.classList.add("category-button");
-              button.addEventListener("click", function () {
-                redirectToQuizPage(category.id);
-              });
-              categoryButtonsContainer.appendChild(button);
-            });
+            questions = data.results;
+            displayQuestion();
           })
           .catch((error) => {
-            console.error("Error fetching quiz categories:", error);
-            alert("Failed to fetch quiz categories. Please try again later.");
+            console.error("Error fetching quiz questions:", error);
+            alert("Failed to fetch quiz questions. Please try again later.");
           });
 
-        // Function to redirect to the quiz page with selected category ID
-        function redirectToQuizPage(categoryId) {
-          window.location.href = `quiz.html?category=${categoryId}`;
+        // Function to display the current question
+        function displayQuestion() {
+          const questionContainer =
+            document.getElementById("question-container");
+          const currentQuestion = questions[currentQuestionIndex];
+          userAnswers[currentQuestionIndex] = null; // Reset user's answer for the current question
+
+          if (currentQuestion) {
+            questionContainer.innerHTML = `
+                <h2>${currentQuestion.question}</h2>
+                <ul>
+                    ${currentQuestion.incorrect_answers
+                      .map(
+                        (answer) =>
+                          `<li><input type="radio" name="answer" value="${answer}" onchange="selectAnswer(this)">${answer}</li>`
+                      )
+                      .join("")}
+                    <li><input type="radio" name="answer" value="${
+                      currentQuestion.correct_answer
+                    }" onchange="selectAnswer(this)">${
+              currentQuestion.correct_answer
+            }</li>
+                </ul>
+            `;
+          } else {
+            questionContainer.textContent = "End of Quiz";
+            document.getElementById("next-button").style.display = "none";
+            showResult();
+          }
+        }
+
+        // Function to handle user's answer selection
+        window.selectAnswer = function (answerElement) {
+          const selectedAnswer = answerElement.value;
+          userAnswers[currentQuestionIndex] = selectedAnswer;
+        };
+
+        // Event listener for next button
+        document
+          .getElementById("next-button")
+          .addEventListener("click", function () {
+            currentQuestionIndex++;
+            displayQuestion();
+          });
+
+        // Function to calculate and display quiz result
+        function showResult() {
+          const resultContainer = document.getElementById("result");
+          correctAnswers = 0;
+
+          questions.forEach((question, index) => {
+            if (question.correct_answer === userAnswers[index]) {
+              correctAnswers++;
+            }
+          });
+
+          resultContainer.textContent = `You answered ${correctAnswers} out of ${questions.length} questions correctly.`;
         }
       });
     </script>
