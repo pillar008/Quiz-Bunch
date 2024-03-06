@@ -7,40 +7,72 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        background-color: #4a154b;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f0f0f0;
       }
+
       .container {
         text-align: center;
+        background-color: #7e57c2; /* Purple background */
+        padding: 20px;
+        border-radius: 10px;
+        color: #fff; /* White text color */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
       }
+
       h1 {
-        color: #333;
+        margin-top: 0;
       }
+
       #result {
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 20px;
       }
+
       #score {
-        font-size: 20px;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        display: inline-block;
         margin-bottom: 20px;
       }
+
+      #score canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(-90deg);
+        background-color: transparent;
+      }
+
+      #score span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+      }
+
       #restart {
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #512da8; /* Dark purple button */
         color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
       }
+
       #restart:hover {
-        background-color: #0056b3;
+        background-color: #311b92; /* Darken button color on hover */
       }
     </style>
   </head>
@@ -48,8 +80,11 @@
     <div class="container">
       <h1>Quiz Results</h1>
       <div id="result"></div>
-      <div id="score"></div>
-      <button id="restart">Restart Quiz</button>
+      <div id="score">
+        <canvas id="score-canvas" width="200" height="200"></canvas>
+        <span id="score-text"></span>
+      </div>
+      <button id="restart">Reset Quiz</button>
     </div>
 
     <script>
@@ -72,17 +107,30 @@
         document.getElementById(
           "result"
         ).innerText = `You answered ${score} out of ${totalQuestions} questions correctly.`;
-        document.getElementById("score").innerText = `Your score is ${
+
+        const scoreCanvas = document.getElementById("score-canvas");
+        const ctx = scoreCanvas.getContext("2d");
+        const centerX = scoreCanvas.width / 2;
+        const centerY = scoreCanvas.height / 2;
+        const radius = 80;
+        const startAngle = -Math.PI / 2;
+        const endAngle = (score / totalQuestions) * 2 * Math.PI - Math.PI / 2;
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = "#fff"; // White circle
+        ctx.stroke();
+
+        document.getElementById("score-text").innerText = `${Math.round(
           (score / totalQuestions) * 100
-        }%.`;
+        )}%`;
 
         document
           .getElementById("restart")
           .addEventListener("click", function () {
-            // Redirect to the quiz page or reset quiz state
-            // Replace this line with appropriate code for your application
-            // window.location.href = 'quiz.html';
-            alert("Quiz restarted!");
+            // Go back to the previous page
+            window.history.back();
           });
       });
     </script>
