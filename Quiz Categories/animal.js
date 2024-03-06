@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizContainer = document.getElementById("quiz-container");
   const scoreScreen = document.getElementById("score-screen");
+  const scoreCanvas = document.getElementById("score-canvas");
   const questions = [
     {
       question: "What is the fastest land animal?",
@@ -64,22 +65,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const questionElement = document.createElement("div");
     questionElement.classList.add("question", "active");
     questionElement.innerHTML = `
-            <h2>Question ${currentQuestionIndex + 1}</h2>
-            <p>${question.question}</p>
-            <div class="options">
-                ${question.options
-                  .map(
-                    (option) => `
-                    <label>
-                        <input type="radio" name="answer" value="${option}">
-                        <span>${option}</span>
-                    </label><br>
-                `
-                  )
-                  .join("")}
-            </div>
-            <button onclick="nextQuestion()">Next</button>
-        `;
+        <h2>Question ${currentQuestionIndex + 1}</h2>
+        <p>${question.question}</p>
+        <div class="options">
+            ${question.options
+              .map(
+                (option) => `
+                <label>
+                    <input type="radio" name="answer" value="${option}">
+                    <span>${option}</span>
+                </label><br>
+            `
+              )
+              .join("")}
+        </div>
+        <button onclick="nextQuestion()">Next</button>
+    `;
     quizContainer.innerHTML = "";
     quizContainer.appendChild(questionElement);
 
@@ -137,6 +138,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>Your score: ${score} out of ${questions.length}</p>
     `;
     scoreScreen.appendChild(scoreMessage);
+    // After the user finishes the quiz and gets the results
+    const resultsQueryString = questions
+      .map((question, index) => {
+        return question.correctAnswer === questions[index].options[0]
+          ? "true"
+          : "false";
+      })
+      .join(",");
+    window.location.href = `quiz-results.html?results=${resultsQueryString}`;
   }
 
   function drawScoreRing(percentage) {

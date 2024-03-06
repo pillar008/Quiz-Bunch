@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizContainer = document.getElementById("quiz-container");
   const scoreScreen = document.getElementById("score-screen");
+  const scoreCanvas = document.getElementById("score-canvas");
   const questions = [
     {
       question: "In 'Naruto', what is the name of Naruto's rival?",
@@ -155,7 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <h2>Quiz Completed!</h2>
           <p>Your score: ${score} out of ${questions.length}</p>
       `;
-    scoreScreen.appendChild(scoreMessage);
+    const resultsQueryString = questions
+      .map((question, index) => {
+        return question.correctAnswer === questions[index].options[0]
+          ? "true"
+          : "false";
+      })
+      .join(",");
+    window.location.href = `quiz-results.html?results=${resultsQueryString}`;
   }
 
   function drawScoreRing(percentage) {

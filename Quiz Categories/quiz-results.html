@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .container {
+        text-align: center;
+      }
+      h1 {
+        color: #333;
+      }
+      #result {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      #score {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      #restart {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #restart:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quiz Results</h1>
+      <div id="result"></div>
+      <div id="score"></div>
+      <button id="restart">Restart Quiz</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultsString = urlParams.get("results");
+        const quizResults = resultsString
+          .split(",")
+          .map((result) => result === "true");
+
+        let score = 0;
+        for (let i = 0; i < quizResults.length; i++) {
+          if (quizResults[i]) {
+            score++;
+          }
+        }
+
+        const totalQuestions = quizResults.length;
+
+        document.getElementById(
+          "result"
+        ).innerText = `You answered ${score} out of ${totalQuestions} questions correctly.`;
+        document.getElementById("score").innerText = `Your score is ${
+          (score / totalQuestions) * 100
+        }%.`;
+
+        document
+          .getElementById("restart")
+          .addEventListener("click", function () {
+            // Redirect to the quiz page or reset quiz state
+            // Replace this line with appropriate code for your application
+            // window.location.href = 'quiz.html';
+            alert("Quiz restarted!");
+          });
+      });
+    </script>
+  </body>
+</html>

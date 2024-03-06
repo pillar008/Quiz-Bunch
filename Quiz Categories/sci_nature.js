@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const quizContainer = document.getElementById("quiz-container");
   const scoreScreen = document.getElementById("score-screen");
+  const scoreCanvas = document.getElementById("score-canvas");
   const questions = [
     {
       question: "What is the chemical symbol for water?",
@@ -146,6 +147,15 @@ document.addEventListener("DOMContentLoaded", function () {
           <p>Your score: ${score} out of ${questions.length}</p>
       `;
     scoreScreen.appendChild(scoreMessage);
+    // After the user finishes the quiz and gets the results
+    const resultsQueryString = questions
+      .map((question, index) => {
+        return question.correctAnswer === questions[index].options[0]
+          ? "true"
+          : "false";
+      })
+      .join(",");
+    window.location.href = `quiz-results.html?results=${resultsQueryString}`;
   }
 
   function drawScoreRing(percentage) {
