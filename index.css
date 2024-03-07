@@ -508,7 +508,7 @@ body {
 
 .home {
   position: relative;
-  left: -30%;
+  left: -115vh;
   width: 100%;
   display: flex;
   justify-content: center;
