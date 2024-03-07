@@ -550,6 +550,13 @@ body {
   cursor: pointer;
   transition: 0.5s;
 }
+
+.start_btn:hover{
+  background: #950170;
+}
+
+
+
 .home-content .start-btn {
   width: 190px;
   height: 55px;
