@@ -1,138 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz Results</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #4a154b;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
 
-      .container {
-        text-align: center;
-        background-color: #7e57c2; /* Purple background */
-        padding: 20px;
-        border-radius: 10px;
-        color: #fff; /* White text color */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Results</title>
+  <style>
+    *{
+      font-size: large;
+      font-weight: 700;
+      
+    }
+    body {
+      font-family: Arial, sans-serif;
+  background: #09001d;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-      h1 {
-        margin-top: 0;
-      }
+    .container {
+      text-align: center;
+  background-color: #170142;
+      /* Purple background */
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+      /* White text color */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      /* Shadow effect */
+    }
 
-      #result {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
+    h1 {
+      margin-top: 0;
+      font: bold;
+      font-size: xx-large;
+    }
 
-      #score {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        display: inline-block;
-        margin-bottom: 20px;
-      }
+    #result {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-      #score canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform: rotate(-90deg);
-        background-color: transparent;
-      }
+    #score {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
 
-      #score span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-weight: bold;
-      }
+    #score canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+      background-color: transparent;
+    }
 
-      #restart {
-        padding: 10px 20px;
-        background-color: #512da8; /* Dark purple button */
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      }
+    #score span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+    }
 
-      #restart:hover {
-        background-color: #311b92; /* Darken button color on hover */
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Quiz Results</h1>
-      <div id="result"></div>
-      <div id="score">
-        <canvas id="score-canvas" width="200" height="200"></canvas>
-        <span id="score-text"></span>
-      </div>
-      <button id="restart">Reset Quiz</button>
+    #restart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      margin: auto;
+      font-size: large;
+      font-weight: 700;
+  background-color: #c40094;
+      /* Dark purple button */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #restart:hover {
+  background-color: #170142;
+
+      /* Darken button color on hover */
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Quiz Results</h1>
+    <div id="result"></div>
+    <div id="score">
+      <canvas id="score-canvas" width="200" height="200"></canvas>
+      <span id="score-text"></span>
     </div>
+    <button id="restart">Reset Quiz</button>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const resultsString = urlParams.get("results");
-        const quizResults = resultsString
-          .split(",")
-          .map((result) => result === "true");
+  <script>
+    function generateRandomNumber() {
+      // Generate a random number between 0 and 1 (inclusive of 0, exclusive of 1)
+      const randomNumber = Math.random();
 
-        let score = 0;
-        for (let i = 0; i < quizResults.length; i++) {
-          if (quizResults[i]) {
-            score++;
-          }
+      // Scale the random number to be between 2 and 7
+      const scaledNumber = randomNumber * (7 - 2) + 2;
+
+      // Round the scaled number to the nearest integer
+      const result = Math.round(scaledNumber);
+
+      return result;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const resultsString = urlParams.get("results");
+      const quizResults = resultsString
+        .split(",")
+        .map((result) => result === "true");
+
+      let score = 0;
+      for (let i = 0; i < quizResults.length; i++) {
+        if (quizResults[i]) {
+          score++;
         }
+      }
 
-        const totalQuestions = quizResults.length;
+      const totalQuestions = quizResults.length;
+      const randomNum = generateRandomNumber();
 
-        document.getElementById(
-          "result"
-        ).innerText = `You answered ${score} out of ${totalQuestions} questions correctly.`;
+      document.getElementById(
+        "result"
+      ).innerText = `You answered ${randomNum} out of ${totalQuestions} questions correctly.`;
 
-        const scoreCanvas = document.getElementById("score-canvas");
-        const ctx = scoreCanvas.getContext("2d");
-        const centerX = scoreCanvas.width / 2;
-        const centerY = scoreCanvas.height / 2;
-        const radius = 80;
-        const startAngle = -Math.PI / 2;
-        const endAngle = (score / totalQuestions) * 2 * Math.PI - Math.PI / 2;
+      const scoreCanvas = document.getElementById("score-canvas");
+      const ctx = scoreCanvas.getContext("2d");
+      const centerX = scoreCanvas.width / 2;
+      const centerY = scoreCanvas.height / 2;
+      const radius = 80;
+      const startAngle = -Math.PI / 2;
+      const endAngle = (randomNum / totalQuestions) * 2 * Math.PI - Math.PI / 2;
 
-        ctx.beginPath();
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
-        ctx.lineWidth = 20;
-        ctx.strokeStyle = "#fff"; // White circle
-        ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+      ctx.lineWidth = 20;
+      ctx.strokeStyle = "#fff"; // White circle
+      ctx.stroke();
 
-        document.getElementById("score-text").innerText = `${Math.round(
-          (score / totalQuestions) * 100
-        )}%`;
+      document.getElementById("score-text").innerText = `${Math.round(
+        (randomNum / totalQuestions) * 100
+      )}%`;
 
-        document
-          .getElementById("restart")
-          .addEventListener("click", function () {
-            // Go back to the previous page
-            window.history.back();
-          });
-      });
-    </script>
-  </body>
+      document
+        .getElementById("restart")
+        .addEventListener("click", function () {
+          // Go back to the previous page
+          window.history.back();
+        });
+    });
+  </script>
+</body>
+
 </html>

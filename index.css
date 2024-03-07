@@ -508,7 +508,7 @@ body {
 
 .home {
   position: relative;
-  left: -50%;
+  left: -30%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -536,6 +536,20 @@ body {
   margin-bottom: 30px;
 }
 
+.start_btn{
+  width: 190px;
+  height: 55px;
+  background: #c40094;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #c40094;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s;
+}
 .home-content .start-btn {
   width: 190px;
   height: 55px;
